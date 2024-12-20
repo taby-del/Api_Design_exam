@@ -73,13 +73,17 @@ WSGI_APPLICATION = 'Api_Design.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'your_db_name',
+        'USER': 'your_db_user',
+        'PASSWORD': 'your_db_password',
+        'HOST': 'localhost',  # or your DB host
+        'PORT': '5432',       # default PostgreSQL port
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -118,3 +122,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# settings.py
+
+STATIC_URL = '/static/'
+
+# Directory where static files will be collected
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Adjust this path as needed
+]
+
+# Directory to collect static files when you run collectstatic
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Make sure this directory exists
